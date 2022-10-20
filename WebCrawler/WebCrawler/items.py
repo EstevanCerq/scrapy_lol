@@ -1,12 +1,16 @@
-# Define here the models for your scraped items
-#
-# See documentation in:
-# https://docs.scrapy.org/en/latest/topics/items.html
-
 import scrapy
 
 
 class WebcrawlerItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+  pass
+
+class ReviewLoLItem(scrapy.Item):
+  name = scrapy.Field()
+  rank = scrapy.Field()
+  role = scrapy.Field()
+  tier = scrapy.Field()
+  win_rate = scrapy.Field()
+  pick_rate = scrapy.Field()
+  ban_rate = scrapy.Field()
+  counter_picks = scrapy.Field()
+  matches = scrapy.Field()
