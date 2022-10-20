@@ -87,3 +87,7 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+# Cache Scrapy Shell
+WebCrawler/WebCrawler/__pycache__/
+WebCrawler/WebCrawler/spiders/__pycache__/
