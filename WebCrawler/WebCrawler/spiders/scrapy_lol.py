@@ -1,3 +1,4 @@
+from asyncio.windows_events import NULL
 import scrapy
 import math
 from scrapy import Request
@@ -20,19 +21,19 @@ class ScrapyLolSpider(scrapy.Spider):
       try:
         item['name'] = champion.css('td span.name::text')[0].extract().strip()
       except:
-        item['name'] = 'None'
+        item['name'] = 'NaN'
 
       # Rôle du champion
       try:
         item['role'] = champion.css('td div.txt i::text')[0].extract().strip()
       except:
-        item['role'] = 'None'
+        item['role'] = 'NaN'
 
       # Classement du champion
       try:
         item['rank'] = champion.css('td.text-right::text')[0].extract().strip().replace('.', '')
       except:
-        item['rank'] = 'None'
+        item['rank'] = 'NaN'
       
       # Popularité du champion à améliorer
       try:
@@ -40,7 +41,7 @@ class ScrapyLolSpider(scrapy.Spider):
         fame_temp_float = float(fame_temp)
         item['fame'] = f'{round(fame_temp_float * 100, 2)}%'
       except:
-        item['fame'] = 'None'
+        item['fame'] = 'NaN'
 
       # Taux de victoire du champion à améliorer
       try:
@@ -48,7 +49,7 @@ class ScrapyLolSpider(scrapy.Spider):
         victory_temp_float = float(victory_temp)
         item['victory'] = f'{round(victory_temp_float * 100, 2)}%'
       except:
-        item['victory'] = 'None'
+        item['victory'] = 'NaN'
 
       # Taux de ban du champion à améliorer
       try:
@@ -56,19 +57,19 @@ class ScrapyLolSpider(scrapy.Spider):
         ban_rate_temp_float = float(ban_rate_temp)
         item['ban_rate'] = f'{round(ban_rate_temp_float * 100, 2)}%'
       except:
-        item['ban_rate'] = 'None'
+        item['ban_rate'] = 'NaN'
 
       # KDA du champion à compléter
       try:
         item['kda'] = champion.css('h2 a::text')[0].extract()
       except:
-        item['kda'] = 'None'
+        item['kda'] = 'NaN'
 
       # Pentas par match du champion à compléter
       try:
         item['pentas_match'] = champion.css('h2 a::text')[0].extract()
       except:
-        item['pentas_match'] = 'None'
+        item['pentas_match'] = 'NaN'
 
       yield item
   
