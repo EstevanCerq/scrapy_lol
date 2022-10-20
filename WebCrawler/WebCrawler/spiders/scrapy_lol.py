@@ -6,12 +6,10 @@ from WebCrawler.items import ReviewLoLItem
 class ScrapyLolSpider(scrapy.Spider):
   name = 'scrapy_lol'
   allowed_domains = ['u.gg']
-  start_url = ['http://u.gg/']
+  start_url = ['https://www.leagueofgraphs.com/fr/champions/builds']
 
   def parse_lol(self, response):
     champions_list = response.css('table tr')
-
-    breakpoint()
 
     # Boucle qui parcours l'ensemble des éléments de la liste des champions
     for champion in champions_list:
@@ -38,9 +36,8 @@ class ScrapyLolSpider(scrapy.Spider):
       # Popularité du champion à améliorer
       try:
         item['fame'] = champion.css('td progressbar')[0].attrib['data-value']
-        # toto = champion.css('td progressbar')[0].attrib['data-value']
-        # test = int(toto) * 100
-        # breakpoint()
+        toto = champion.css('td progressbar')[0].attrib['data-value']
+        test = int(toto) * 100
       except:
         item['fame'] = 'None'
 
