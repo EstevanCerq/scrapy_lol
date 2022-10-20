@@ -61,7 +61,9 @@ class ScrapyLolSpider(scrapy.Spider):
 
       # KDA du champion
       try:
-        item['kda'] = [element.extract() for element in champion.css('td.text-center.hide-for-small-down span::text')]
+        # breakpoint()
+        kda_temp = [element.extract() for element in champion.css('td.text-center.hide-for-small-down span::text')]
+        item['kda'] = ' / ' . join(kda_temp)
       except:
         item['kda'] = 'NaN'
 
