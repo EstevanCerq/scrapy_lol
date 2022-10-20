@@ -4,11 +4,4 @@ WebCrawler/WebCrawler/spiders/__pycache__/
 *.pyc
 *.cpython-39.pyc
 
-WebCrawler/WebCrawler/__pycache__/*.pyc
-items.cpython-39.pyc
-settings.cpython-39.pyc
-__init__.cpython-39.pyc
-
-__pycache__/
-*__pycache__/
-__pycache__/*
+**/__pycache__/
