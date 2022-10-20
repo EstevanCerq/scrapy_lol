@@ -35,7 +35,7 @@ class ScrapyLolSpider(scrapy.Spider):
       except:
         item['rank'] = 'NaN'
       
-      # Popularité du champion à améliorer
+      # Popularité du champion
       try:
         fame_temp = champion.css('td progressbar')[0].attrib['data-value']
         fame_temp_float = float(fame_temp)
@@ -43,7 +43,7 @@ class ScrapyLolSpider(scrapy.Spider):
       except:
         item['fame'] = 'NaN'
 
-      # Taux de victoire du champion à améliorer
+      # Taux de victoire du champion
       try:
         victory_temp = champion.css('td progressbar')[1].attrib['data-value']
         victory_temp_float = float(victory_temp)
@@ -51,7 +51,7 @@ class ScrapyLolSpider(scrapy.Spider):
       except:
         item['victory'] = 'NaN'
 
-      # Taux de ban du champion à améliorer
+      # Taux de ban du champion
       try:
         ban_rate_temp = champion.css('td progressbar')[2].attrib['data-value']
         ban_rate_temp_float = float(ban_rate_temp)
@@ -59,15 +59,15 @@ class ScrapyLolSpider(scrapy.Spider):
       except:
         item['ban_rate'] = 'NaN'
 
-      # KDA du champion à compléter
+      # KDA du champion
       try:
-        item['kda'] = champion.css('h2 a::text')[0].extract()
+        item['kda'] = [element.extract() for element in champion.css('td.text-center.hide-for-small-down span::text')]
       except:
         item['kda'] = 'NaN'
 
-      # Pentas par match du champion à compléter
+      # Pentas par match du champion
       try:
-        item['pentas_match'] = champion.css('h2 a::text')[0].extract()
+        item['pentas_match'] = champion.css('td.text-center.hide-for-small-down::text')[4].extract().strip()
       except:
         item['pentas_match'] = 'NaN'
 
