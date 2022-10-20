@@ -1,34 +1,63 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*,cover
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
 # Cache Scrapy Shell
 WebCrawler/WebCrawler/__pycache__/
 WebCrawler/WebCrawler/spiders/__pycache__/
 *.pyc
 *.cpython-39.pyc
-
-/.vagrant
-/scrapy.iml
-*.pyc
-_trial_temp*
-dropin.cache
-docs/build
-*egg-info
-.tox
-venv
-build
-dist
-.idea
-htmlcov/
-.coverage
-.pytest_cache/
-.coverage.*
-coverage.*
-test-output.*
-.cache/
-.mypy_cache/
-/tests/keys/localhost.crt
-/tests/keys/localhost.key
-
-# Windows
-Thumbs.db
-
-# OSX miscellaneous
-.DS_Store
