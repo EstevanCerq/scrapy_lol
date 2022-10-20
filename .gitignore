@@ -61,3 +61,9 @@ WebCrawler/WebCrawler/__pycache__/
 WebCrawler/WebCrawler/spiders/__pycache__/
 *.pyc
 *.cpython-39.pyc
+
+**/.pyc
+**/.cpython-39.pyc
+
+**.pyc
+**.cpython-39.pyc
