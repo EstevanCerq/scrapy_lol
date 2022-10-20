@@ -1,4 +1,5 @@
 import scrapy
+import math
 from scrapy import Request
 from WebCrawler.items import ReviewLoLItem
 
@@ -9,8 +10,8 @@ class ScrapyLolSpider(scrapy.Spider):
   start_url = ['https://www.leagueofgraphs.com/fr/champions/builds']
 
   def parse_lol(self, response):
-    champions_list = response.css('table tr')
-
+    champions_list = response.css('div.box-padding-10-dark-only table tr')
+    
     # Boucle qui parcours l'ensemble des éléments de la liste des champions
     for champion in champions_list:
       item = ReviewLoLItem()
@@ -35,21 +36,25 @@ class ScrapyLolSpider(scrapy.Spider):
       
       # Popularité du champion à améliorer
       try:
-        item['fame'] = champion.css('td progressbar')[0].attrib['data-value']
-        toto = champion.css('td progressbar')[0].attrib['data-value']
-        test = int(toto) * 100
+        fame_temp = champion.css('td progressbar')[0].attrib['data-value']
+        fame_temp_float = float(fame_temp)
+        item['fame'] = f'{round(fame_temp_float * 100, 2)}%'
       except:
         item['fame'] = 'None'
 
       # Taux de victoire du champion à améliorer
       try:
-        item['victory'] = champion.css('td progressbar')[1].attrib['data-value']
+        victory_temp = champion.css('td progressbar')[1].attrib['data-value']
+        victory_temp_float = float(victory_temp)
+        item['victory'] = f'{round(victory_temp_float * 100, 2)}%'
       except:
         item['victory'] = 'None'
 
       # Taux de ban du champion à améliorer
       try:
-        item['ban_rate'] = champion.css('td progressbar')[2].attrib['data-value']
+        ban_rate_temp = champion.css('td progressbar')[2].attrib['data-value']
+        ban_rate_temp_float = float(ban_rate_temp)
+        item['ban_rate'] = f'{round(ban_rate_temp_float * 100, 2)}%'
       except:
         item['ban_rate'] = 'None'
 
