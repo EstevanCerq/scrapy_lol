@@ -6,11 +6,10 @@ class WebcrawlerItem(scrapy.Item):
 
 class ReviewLoLItem(scrapy.Item):
   name = scrapy.Field()
-  rank = scrapy.Field()
   role = scrapy.Field()
-  tier = scrapy.Field()
-  win_rate = scrapy.Field()
-  pick_rate = scrapy.Field()
+  rank = scrapy.Field()
+  fame = scrapy.Field()
+  victory = scrapy.Field()
   ban_rate = scrapy.Field()
-  counter_picks = scrapy.Field()
-  matches = scrapy.Field()
+  kda = scrapy.Field()
+  pentas_match = scrapy.Field()
