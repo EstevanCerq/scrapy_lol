@@ -71,6 +71,5 @@ class ScrapyLolSpider(scrapy.Spider):
       yield item
   
   def start_requests(self):
-    breakpoint()
     for url in self.start_url:
       yield Request(url = url, callback = self.parse_lol)
